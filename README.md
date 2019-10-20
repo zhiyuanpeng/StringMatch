@@ -1,4 +1,5 @@
 # StringMatch
+Package requirement: pyjarowinkler (pip install pyjarowinkler)
 
 # StringMatch.py
 StringMatch.py is the match program
