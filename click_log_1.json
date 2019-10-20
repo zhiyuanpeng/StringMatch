@@ -1,0 +1,8 @@
+{
+  "PT": ["car", "automobile", "vehicle"],
+  "BR": ["Ford", "Honda", "Tesla", "Toyata", "BMW", "Ferrari", "Benz"],
+  "CO": ["black", "red", "white", "purple", "Grey", "Blue", "Silver", "Green", "Orange"],
+  "PD": ["Model 3", "Model X", "Model Y", "Civic", "Corolla", "camry", "Focus", "Fusion", "Mustanig", "C300", "G63", "E Class", "911", "718"],
+  "CH": ["SUV", "Sport", "coupe", "truck", "Minivan", "Van", "Hatchback", "Convertible"],
+  "SV": ["Economy", "Compact", "Intermediate", "Standard", "Fullsize"]
+}
