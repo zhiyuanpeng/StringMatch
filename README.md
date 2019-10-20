@@ -38,7 +38,7 @@ query_1 = ["tesla red model x",
            "e clbss mddel x b63 null null mmdel y moael 3"]
 ```
 # special_case.json
-This is the second test clikc log. It is to test the special case: different attributes have the same attribute value. The corresponding query is:
+This is the second test click log. It is to test the special case: different attributes have the same attribute values. The corresponding query is:
 ```python
 query_2 = ["blue desk bird and red lobster"]
 ```
