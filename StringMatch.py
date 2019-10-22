@@ -1,24 +1,5 @@
 """
 This program is to label the search query with the corresponding attributes from the click logs
-
-PT: product type
-BR: brand
-GR: gender
-CO: color
-CH: character
-AV: age
-AU: age unit
-AT: age type
-SV: size value
-SU: size unite
-ST: size type
-QV: quantity value
-QU: quantity unite
-QT: quantity type
-PD: product type description
-PL: product line
-PR: price
-MI: miscellaneous
 """
 
 import json
