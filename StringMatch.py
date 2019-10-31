@@ -322,7 +322,7 @@ def main():
     parser.add_argument("--algorithm", default="jaro-winkler", type=str, choices=["trigram", "jaro-winkler"],
                         help="select the algorithm to calculate similarity: trigram or jaro-winkler")
 
-    parser.add_argument("--threshold", default=0.99, type=restricted_float,
+    parser.add_argument("--threshold", default=0.95, type=restricted_float,
                         help="if the similarity score of two words >= threshold, the two words are considered same")
     args = parser.parse_args()
 
