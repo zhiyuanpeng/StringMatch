@@ -1,20 +1,5 @@
 """
-This program is based on the StringMatch.py, the difference is the longest match algorithm. The StringMatch.py uses DP
-to match the longest attribute value. This program use click times info to match the most likely attribute value. If the
-similarity score of two words is bigger than the threshold, we will label the word with the corresponding label and the
-weighted similarity score which is defined by similarity score * click time.
-For StringMatch.py, the input click log is like this:
-{
-  "a": ["wall mount"],
-  "b": ["wall mount"]
-}
-
-For StringMatchClick.py, the input click log is like this:
-{
-  "a": [{"wall mount": 30}, {}, ..., {}],
-  "b": [{"wall mount": 45}, {}, ..., {}]
-}
-
+tag each query using the corresponding click log
 """
 
 import json
@@ -153,11 +138,10 @@ def string_match(query, logs, algorithm, threshold):
     return returned_label_list
 
 
-def query_tagging(query_path, log_path, tagged_query_path, algorithm, threshold):
+def query_tagging(query_log_path, tagged_query_path, algorithm, threshold):
     """
     this function take the log_path and query_list as inputs and write
-    :param query_path: a list of queries
-    :param log_path: click log path
+    :param query_log_path: json file contains queries the corresponding click logs
     :param tagged_query_path: the path of the outputted tagged query
     :param algorithm: the select algorithm to calculate similarity
     :param threshold: the threshold
@@ -167,18 +151,16 @@ def query_tagging(query_path, log_path, tagged_query_path, algorithm, threshold)
     print("The selected similarity algorithm is: " + algorithm)
     print("The selected threshold is: " + str(threshold))
     # open the log file and load data
-    with open(log_path) as logs_json:
-        logs = json.load(logs_json)
-    with open(query_path) as query_txt:
-        lines = query_txt.readlines()
-        index = 0
-        for query_list in lines:
-            # print(string_match(query, logs, algorithm, threshold))
-            tagged_query = string_match(query_list, logs, algorithm, threshold)
-            with open(tagged_query_path, "a+") as tagged_query_txt:
-                tagged_query_txt.write("query{}".format(index) + ": " + query_list.strip("\n") + "\n"
-                                       + "Tagged Query: " + str(tagged_query) + "\n" + "\n")
-            index = index + 1
+    with open(query_log_path) as query_log_json:
+        query_log = json.load(query_log_json)
+    index = 0
+    for query in query_log:
+        # print(string_match(query, logs, algorithm, threshold))
+        tagged_query = string_match(query, query_log[query], algorithm, threshold)
+        with open(tagged_query_path, "a+") as tagged_query_txt:
+            tagged_query_txt.write("query{}".format(index) + ": " + query.strip("\n") + "\n"
+                                   + "Tagged Query: " + str(tagged_query) + "\n" + "\n")
+        index = index + 1
 
 
 def main():
@@ -192,9 +174,8 @@ def main():
 
     # command-line parsing
     parser = argparse.ArgumentParser()
-    parser.add_argument("query_path", type=str, help="the path of the input query file, " +
+    parser.add_argument("query_log_path", type=str, help="the path of the input query file, " +
                         "the query file is of txt format each line of which is a query")
-    parser.add_argument("log_path", type=str, help="the path of click")
     parser.add_argument("tagged_query_path", type=str,
                         help="the path of the outputted tagged query the format of which is txt")
     parser.add_argument("--algorithm", default="jaro-winkler", type=str, choices=["trigram", "jaro-winkler"],
@@ -204,19 +185,8 @@ def main():
                         help="if the similarity score of two words >= threshold, the two words are considered same")
     args = parser.parse_args()
 
-    # for test
-    # args.query_path = "data/query1.txt"
-    # args.log_path = "data/clicktimes.json"
-    # args.tagged_query_path = "data/query1_tagged_by_clicktimes.txt"
-    query_tagging(args.query_path, args.log_path, args.tagged_query_path, args.algorithm, args.threshold)
+    query_tagging(args.query_log_path, args.tagged_query_path, args.algorithm, args.threshold)
 
 
 if __name__ == "__main__":
     main()
-
-
-
-
-
-
-
