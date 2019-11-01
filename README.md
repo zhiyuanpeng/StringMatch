@@ -34,3 +34,20 @@ This is the bestbuy click log. The attributes are collected from the [Best Buy E
 
 # bestbuy_query.txt
 This is the bestbuy query which is collected from the [Best Buy E-commerce NER dataset](https://dataturks.com/projects/Mohan/Best%20Buy%20E-commerce%20NER%20dataset).
+
+
+```
+{
+  "query1": {
+               "attribute1": [{"value1": click times}, {"value2": click times}, ...],
+               "attribute2": [{"value1": click times}, {"value2": click times}, ...],
+               ...
+            },
+  "query2": {
+               "attribute1": [{"value1": click times}, {"value2": click times}, ...],
+               "attribute2": [{"value1": click times}, {"value2": click times}, ...],
+               ...
+            },
+   ...
+}
+```
