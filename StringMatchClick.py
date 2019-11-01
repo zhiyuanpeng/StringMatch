@@ -174,8 +174,7 @@ def main():
 
     # command-line parsing
     parser = argparse.ArgumentParser()
-    parser.add_argument("query_log_path", type=str, help="the path of the input query file, " +
-                        "the query file is of txt format each line of which is a query")
+    parser.add_argument("query_log_path", type=str, help="the path of the input query and click log file")
     parser.add_argument("tagged_query_path", type=str,
                         help="the path of the outputted tagged query the format of which is txt")
     parser.add_argument("--algorithm", default="jaro-winkler", type=str, choices=["trigram", "jaro-winkler"],
