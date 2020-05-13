@@ -26,7 +26,7 @@ def trigram(word):
 
 def similarity(w1, w2, algorithm):
     """
-    Computes the trigrams similarity of two input words w1 and w2
+    Computes the similarity of two input words w1 and w2
     :param w1: the first input word
     :param w2: the second input word
     :param algorithm: the name of the algorithm to calculate the similarity
@@ -140,7 +140,7 @@ def string_match(query, logs, algorithm, threshold):
 
 def query_tagging(query_log_path, tagged_query_path, algorithm, threshold):
     """
-    this function take the log_path and query_list as inputs and write
+    this function takes the log_path, algorithm, threshold as input, and output the labeled query to tagged_query_path
     :param query_log_path: json file contains queries the corresponding click logs
     :param tagged_query_path: the path of the outputted tagged query
     :param algorithm: the select algorithm to calculate similarity
