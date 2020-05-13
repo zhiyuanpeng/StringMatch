@@ -32,13 +32,6 @@ The queries and click logs are in one file the format of which is like this:
    ...
 }
 ```
-For StringMatchClick.py, the input click log is like this:
-```
-{
-  "attribute1": [{"wall mount": click times}, {}, ..., {}],
-  "attribute2": [{"wall mount": click times}, {}, ..., {}]
-}
-```
 # bestbuy_click_log.json
 This is the bestbuy click log. The attributes are collected from the [Best Buy E-commerce NER dataset](https://dataturks.com/projects/Mohan/Best%20Buy%20E-commerce%20NER%20dataset). The corresponding queries are in the bestbuy_query.txt.
 
