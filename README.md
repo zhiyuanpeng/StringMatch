@@ -14,7 +14,7 @@ query_tagging(args.query_path, args.log_path, args.tagged_query_path, args.algor
 + args.threshold: if similarity score calculated by the "jaro-winkler" or "trigram" algorithm equals or bigger than the threshold, the two words are considered same. Threshold is a float value between 0 and 1.
 
 # StringMatchClick.py
-In StringMatchClick.py, if the similarity score of two words is bigger than the threshold, we will label the word with the corresponding label and the weighted similarity score which is defined by similarity score * click time. Finally, we will output the labels with the corresponding weighted similarity scores.
+In StringMatchClick.py, if the similarity score of two words is bigger than the threshold(default value is 0.95), we will label the word with the corresponding label and the weighted similarity score which is defined by similarity score * click time. Finally, we will output the labels with the corresponding weighted similarity scores.
 
 Parameters:
 + args.query_path: the path of the query file the format of which is txt.
