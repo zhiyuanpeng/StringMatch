@@ -48,8 +48,10 @@ def similarity(w1, w2, algorithm):
 def string_match(query, logs, algorithm, threshold):
     """
     label the input query with the predefined attributes
-    :param query: a list of query to be labeled
-    :param logs: a json file path which contains the attributes and the corresponding value
+    :param query: a query string
+    :param logs: dict:{"attribute1":[{"value1": click times}, {"value2": click times}, ...],
+                       "attribute2":[{"value1": click times}, {"value2": click times}, ...],
+                       ...}
     :param algorithm: select the algorithm of similarity
     :param threshold: the threshold of the similarity algorithm
     :return:
