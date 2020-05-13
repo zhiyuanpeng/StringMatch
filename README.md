@@ -36,7 +36,7 @@ Parameters:
 ```
 + args.tagged_query_path: the path of the outputed tagged queires. The format of the file is txt.
 + args.algorithm: select "jaro-winkler" or "trigram". The default value is "jaro-winkler. 
-+ args.threshold: if similarity score calculated by the "jaro-winkler" or "trigram" algorithm equals or bigger than the threshold, the two words are considered same. Threshold is a float value between 0 and 1.
++ args.threshold: if similarity score calculated by the "jaro-winkler" or "trigram" algorithm equals or bigger than the threshold, the two words are considered same. Threshold is a float value between 0 and 1, the default value is 0.95.
 
 
 # bestbuy_click_log.json
